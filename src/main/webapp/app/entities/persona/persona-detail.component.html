@@ -1,0 +1,65 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="persona">
+            <h2><span>Persona</span> {{persona.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Nombres</span></dt>
+                <dd>
+                    <span>{{persona.nombres}}</span>
+                </dd>
+                <dt><span>Apellidos</span></dt>
+                <dd>
+                    <span>{{persona.apellidos}}</span>
+                </dd>
+                <dt><span>Numero Id</span></dt>
+                <dd>
+                    <span>{{persona.numeroId}}</span>
+                </dd>
+                <dt><span>Usuario</span></dt>
+                <dd>
+                    <span>{{persona.usuario}}</span>
+                </dd>
+                <dt><span>Contrasena</span></dt>
+                <dd>
+                    <span>{{persona.contrasena}}</span>
+                </dd>
+                <dt><span>Tipo Identificacion</span></dt>
+                <dd>
+                    <span>{{persona.tipoIdentificacion}}</span>
+                </dd>
+                <dt><span>Edad</span></dt>
+                <dd>
+                    <span>{{persona.edad}}</span>
+                </dd>
+                <dt><span>Direccion</span></dt>
+                <dd>
+                    <span>{{persona.direccion}}</span>
+                </dd>
+                <dt><span>Telefono</span></dt>
+                <dd>
+                    <span>{{persona.telefono}}</span>
+                </dd>
+                <dt><span>Parametro</span></dt>
+                <dd>
+                    <div *ngIf="persona.parametro">
+                        <a [routerLink]="['/parametro', persona.parametro?.id, 'view']">{{persona.parametro?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Atras</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/persona', persona.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Editar</span>
+            </button>
+        </div>
+    </div>
+</div>

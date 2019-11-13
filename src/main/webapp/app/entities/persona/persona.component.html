@@ -1,0 +1,80 @@
+<div>
+    <h2 id="page-heading">
+        <span>Personas</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-persona" [routerLink]="['/persona/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Crear una nueva Persona
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="personas?.length === 0">
+        <span>No hay personas econtradas</span>
+    </div>
+    <div class="table-responsive" *ngIf="personas?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span>ID</span></th>
+            <th scope="col" ><span>Nombres</span></th>
+            <th scope="col" ><span>Apellidos</span></th>
+            <th scope="col" ><span>Numero Id</span></th>
+            <th scope="col" ><span>Usuario</span></th>
+            <th scope="col" ><span>Contrasena</span></th>
+            <th scope="col" ><span>Tipo Identificacion</span></th>
+            <th scope="col" ><span>Edad</span></th>
+            <th scope="col" ><span>Direccion</span></th>
+            <th scope="col" ><span>Telefono</span></th>
+            <th scope="col" ><span>Parametro</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let persona of personas ;trackBy: trackId">
+                <td><a [routerLink]="['/persona', persona.id, 'view' ]">{{persona.id}}</a></td>
+                <td>{{persona.nombres}}</td>
+                <td>{{persona.apellidos}}</td>
+                <td>{{persona.numeroId}}</td>
+                <td>{{persona.usuario}}</td>
+                <td>{{persona.contrasena}}</td>
+                <td>{{persona.tipoIdentificacion}}</td>
+                <td>{{persona.edad}}</td>
+                <td>{{persona.direccion}}</td>
+                <td>{{persona.telefono}}</td>
+                <td>
+                    <div *ngIf="persona.parametro">
+                        <a [routerLink]="['/parametro', persona.parametro?.id, 'view' ]" >{{persona.parametro?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/persona', persona.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">Consultar</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/persona', persona.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Editar</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/persona', { outlets: { popup: persona.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Borrar</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

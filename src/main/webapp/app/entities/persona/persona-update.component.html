@@ -1,0 +1,79 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-persona-heading">Crear o editar Persona</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_nombres">Nombres</label>
+                    <input type="text" class="form-control" name="nombres" id="field_nombres"
+                           formControlName="nombres" required/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_apellidos">Apellidos</label>
+                    <input type="text" class="form-control" name="apellidos" id="field_apellidos"
+                           formControlName="apellidos" required/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_numeroId">Numero Id</label>
+                    <input type="number" class="form-control" name="numeroId" id="field_numeroId"
+                           formControlName="numeroId" required/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_usuario">Usuario</label>
+                    <input type="text" class="form-control" name="usuario" id="field_usuario"
+                           formControlName="usuario" required/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_contrasena">Contrasena</label>
+                    <input type="text" class="form-control" name="contrasena" id="field_contrasena"
+                           formControlName="contrasena" required/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tipoIdentificacion">Tipo Identificacion</label>
+                    <select class="form-control" id="field_tipoIdentificacion" name="tipoIdentificacion" formControlName="tipoIdentificacion" required>
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="tiopcion === editForm.get('tipoIdentificacion').value ? editForm.get('tipoIdentificacion').value : tiopcion" *ngFor="let tiopcion of tiposIdentificacion; trackBy: trackParametroById">{{tiopcion}}</option>
+                    </select>
+                </div>
+               
+                <div class="form-group">
+                    <label class="form-control-label" for="field_edad">Edad</label>
+                    <input type="number" class="form-control" name="edad" id="field_edad"
+                           formControlName="edad" required/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_direccion">Direccion</label>
+                    <input type="text" class="form-control" name="direccion" id="field_direccion"
+                           formControlName="direccion" required/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_telefono">Telefono</label>
+                    <input type="text" class="form-control" name="telefono" id="field_telefono"
+                           formControlName="telefono" required/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_parametro">Parametro</label>
+                    <select class="form-control" id="field_parametro" name="parametro" formControlName="parametro" required>
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="pOption" *ngFor="let pOption of parametros; trackBy: trackParametroById">{{pOption.value}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancelar</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Guardar</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

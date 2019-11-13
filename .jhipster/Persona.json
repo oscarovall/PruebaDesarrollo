@@ -1,0 +1,58 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [
+        {
+            "relationshipName": "parametro",
+            "otherEntityName": "parametro",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "nombres",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "apellidos",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "numeroId",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "usuario",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "contrasena",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tipoIdentificacion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "edad",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "direccion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "telefono",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20191112161948",
+    "dto": "no",
+    "searchEngine": false,
+    "service": "serviceClass",
+    "entityTableName": "persona",
+    "databaseType": "sql",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}
