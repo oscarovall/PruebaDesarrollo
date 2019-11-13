@@ -18,7 +18,7 @@ import { ParametroService } from 'app/entities/parametro/parametro.service';
 export class PersonaUpdateComponent implements OnInit {
   isSaving: boolean;
 
-  tiposIdentificacion = ['Cedula', 'Tarjeta de identidad', 'Pasaporte'];
+  tiposIdentificacion = ['Cedula', 'Tarjeta de identidad', 'Pasaporte', 'Contraseña', 'Cedula de extranjería'];
 
   parametros: IParametro[];
 
